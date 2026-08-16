@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useUser, useClerk, UserButton,} from "@clerk/nextjs";
+import { useUser, useClerk, UserButton, Show } from "@clerk/nextjs";
 import axios from "axios";
 import {
   DropdownMenu,
@@ -63,11 +63,11 @@ const Navbar = () => {
             <span className="text-emerald-600">go</span>cart
             <span className="text-emerald-600 text-4xl sm:text-5xl">.</span>
 
-            {/* <Protect plan="plus">
+            <Show when={{ plan: "plus" }}>
               <p className="absolute text-[12px] font-semibold -top-1 -right-6 sm:-right-8 px-2 sm:px-3 rounded-full text-white bg-gradient-to-r from-emerald-500 to-green-600 shadow-md">
                 plus
               </p>
-            </Protect> */}
+            </Show>
           </Link>
 
           {/* Desktop */}
