@@ -4,25 +4,56 @@ import { Star } from 'lucide-react';
 import React, { useState } from 'react'
 import { XIcon } from 'lucide-react';
 import toast from 'react-hot-toast';
+import { useSelector } from 'react-redux';
 
-const RatingModal = ({ ratingModal, setRatingModal }) => {
+const RatingModal = ({ ratingModal, setRatingModal, productId, orderId }) => {
 
     const [rating, setRating] = useState(0);
     const [review, setReview] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleSubmit = async () => {
-        if (rating < 0 || rating > 5) {
-            return toast('Please select a rating');
+        if (rating < 1 || rating > 5) {
+            return toast.error('Please select a rating');
         }
-        if (review.length < 5) {
-            return toast('write a short review');
+        if (review.trim().length < 5) {
+            return toast.error('Write a review with at least 5 characters');
         }
 
-        setRatingModal(null);
+        setIsLoading(true);
+        try {
+            const response = await fetch('/api/rating', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    productId,
+                    orderId,
+                    rating,
+                    review,
+                }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.error || 'Failed to submit rating');
+            }
+
+            toast.success('Rating submitted successfully!');
+            setRatingModal(null);
+            setRating(0);
+            setReview('');
+        } catch (error) {
+            toast.error(error.message || 'Error submitting rating');
+        } finally {
+            setIsLoading(false);
+        }
     }
 
     return (
-        <div className='fixed inset-0 z-120 flex items-center justify-center bg-black/10'>
+        <div className='fixed inset-0 z-120 flex items-center justify-center bg-black/50'>
             <div className='bg-white p-8 rounded-lg shadow-lg w-96 relative'>
                 <button onClick={() => setRatingModal(null)} className='absolute top-3 right-3 text-gray-500 hover:text-gray-700'>
                     <XIcon size={20} />
@@ -39,13 +70,18 @@ const RatingModal = ({ ratingModal, setRatingModal }) => {
                 </div>
                 <textarea
                     className='w-full p-2 border border-gray-300 rounded-md mb-4 focus:outline-none focus:ring-2 focus:ring-green-400'
-                    placeholder='Write your review (optional)'
+                    placeholder='Write your review (at least 5 characters)'
                     rows='4'
                     value={review}
                     onChange={(e) => setReview(e.target.value)}
+                    disabled={isLoading}
                 ></textarea>
-                <button onClick={e => toast.promise(handleSubmit(), { loading: 'Submitting...' })} className='w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 transition'>
-                    Submit Rating
+                <button 
+                    onClick={handleSubmit} 
+                    disabled={isLoading}
+                    className='w-full bg-green-500 text-white py-2 rounded-md hover:bg-green-600 transition disabled:bg-gray-400 disabled:cursor-not-allowed'
+                >
+                    {isLoading ? 'Submitting...' : 'Submit Rating'}
                 </button>
             </div>
         </div>
