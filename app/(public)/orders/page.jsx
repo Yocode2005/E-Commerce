@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import Loading from "@/components/Loading";
 
 
+
 export default function Orders() {
 
     const {getToken } = useAuth();
@@ -54,7 +55,7 @@ export default function Orders() {
                         <table className="w-full max-w-5xl text-slate-500 table-auto border-separate border-spacing-y-12 border-spacing-x-4">
                             <thead>
                                 <tr className="max-sm:text-sm text-slate-600 max-md:hidden">
-                                    <th className="text-left">Product</th>
+                                    <th className="text-left">Product </th>
                                     <th className="text-center">Total Price</th>
                                     <th className="text-left">Address</th>
                                     <th className="text-left">Status</th>
