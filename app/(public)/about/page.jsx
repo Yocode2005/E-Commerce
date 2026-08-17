@@ -10,7 +10,7 @@ export default function About() {
     <section className="relative py-18 bg-gradient-to-b from-slate-50 to-white overflow-hidden">
       <div className="max-w-5xl mx-auto px-6 text-center">
         <h1 className="text-5xl md:text-6xl font-semibold tracking-tight mb-6">
-          About <span className="text-green-600">GoCart Plus</span>
+          About <span className="text-green-600">gocart </span>
         </h1>
         <p className="text-lg md:text-xl text-slate-500 leading-relaxed max-w-3xl mx-auto">
           Your trusted multi-vendor marketplace bringing you the best gadgets at prices you'll love.
