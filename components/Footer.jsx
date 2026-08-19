@@ -41,9 +41,9 @@ const Footer = () => {
 
     const socialIcons = [
         { icon: FacebookIcon, link: "https://www.facebook.com" },
-        { icon: InstagramIcon, link: "https://www.instagram.com" },
+        { icon: InstagramIcon, link: "https://www.instagram.com/yo_chhandhwal_2005" },
         { icon: TwitterIcon, link: "https://twitter.com" },
-        { icon: LinkedinIcon, link: "https://www.linkedin.com/yogesh-meena-" },
+        { icon: LinkedinIcon, link: "https://www.linkedin.com/in/yogesh-meena-/" },
     ]
 
     return (
