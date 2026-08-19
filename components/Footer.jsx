@@ -43,7 +43,7 @@ const Footer = () => {
         { icon: FacebookIcon, link: "https://www.facebook.com" },
         { icon: InstagramIcon, link: "https://www.instagram.com" },
         { icon: TwitterIcon, link: "https://twitter.com" },
-        { icon: LinkedinIcon, link: "https://www.linkedin.com" },
+        { icon: LinkedinIcon, link: "https://www.linkedin.com/yogesh-meena-" },
     ]
 
     return (
