@@ -266,9 +266,9 @@ export default function Contact() {
                     <div>
                       <p className="font-semibold text-gray-800">Address</p>
                       <p className="text-gray-600">
-                        123 Tech Street
+                        302029, Nandpuri B, Ravindra Nagar - A, Shyopur
                         <br />
-                        Bengaluru, Karnataka 560001
+                        jaipur, Rajasthan 302033
                         <br />
                         India
                       </p>
@@ -293,7 +293,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="font-semibold text-gray-800">Phone</p>
-                      <p className="text-gray-600">+91 80 1234 5678</p>
+                      <p className="text-gray-600">+91 81 0796 0741</p>
                     </div>
                   </div>
 
@@ -315,7 +315,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <p className="font-semibold text-gray-800">Email</p>
-                      <p className="text-gray-600">support@gocartplus.com</p>
+                      <p className="text-gray-600">yogeshchhandhwal2005@gmail.com</p>
                     </div>
                   </div>
 
